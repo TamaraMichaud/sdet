@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tamara</groupId>
+    <artifactId>sdet-practice</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
+        </dependency>
+
+<!--        // these 3 jackson dependencies are needed together as standard -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.10.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<!--        <dependency>-->
+<!--            <groupId>com.googlecode.json-simple</groupId>-->
+<!--            <artifactId>json-simple</artifactId>-->
+<!--            <version>1.1.1</version>-->
+<!--        </dependency>-->
+<!--        ^^ garbage-->
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<!--        <dependency>-->
+<!--            <groupId>com.google.code.gson</groupId>-->
+<!--            <artifactId>gson</artifactId>-->
+<!--            <version>2.8.6</version>-->
+<!--        </dependency>-->
+<!--        ^^ not garbage but ripped out as being used with garbage in tutorial :(-->
+
+<!--        // for string manipulation; strip escape characters-->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-text</artifactId>-->
+<!--            <version>1.8</version>-->
+<!--        </dependency>-->
+<!--^^ garbage-->
+
+    </dependencies>
+
+    <properties>
+        <maven-version>3.8.1</maven-version>
+        <java-version>11</java-version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!--                maven auto-compiles to java version 5... we must force it to use the correct one-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-version}</version>
+                <configuration>
+                    <target>${java-version}</target>
+                    <source>${java-version}</source>
+                    <release>${java-version}</release>
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
