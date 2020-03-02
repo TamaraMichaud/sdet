@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainClass {
+public class WriteToJson {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-//        Class.forName("com.mysql.cj.jdbc.Driver"); // same as import statement...?
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "root");
 
-        ResultSet queryResults = conn.createStatement()
-                .executeQuery("select * from Business.CustomerInfo");
+        // READ FROM DB -> MAP TO OBJECT -> MAP TO JSON FILE
+
+        MySqlConnectionManager sqlConnectionManager = new MySqlConnectionManager();
+        ResultSet queryResults = sqlConnectionManager.executeSqlQuery("select * from Business.CustomerInfo");
 
         ObjectMapper objectMapper = new ObjectMapper();
         List<CustomerDbRecord> customerDbRecordList = new ArrayList<>();
@@ -71,6 +71,7 @@ public class MainClass {
 //        objectMapper.writeValue(new File("myjsonfile" + "EEHHH" + ".json"), s);
 
 
-        conn.close();
+//        conn.close();
+        sqlConnectionManager.close();
     }
 }
